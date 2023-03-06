@@ -1,0 +1,19 @@
+<%= form_with model: student do |it|%>
+    <div>
+        <%=it.label :first_name%><br>
+        <%=it.text_field :first_name%>
+    </div>
+
+    <div>
+        <%=it.label :last_name%><br>
+        <%=it.text_field :last_name%>
+    </div>
+
+    <div>
+        <%=it.label :email%><br>
+        <%=it.email_field :email%>
+    </div>
+    <div>
+        <%=it.submit "Update"%>
+    </div>
+<%end%>

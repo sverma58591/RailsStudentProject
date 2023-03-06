@@ -1,0 +1,33 @@
+<h1>Listing Students</h1>
+<div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Email</th>
+                    <th colspan="3">Actions</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <% @students.each do |it|%>
+                <tr>
+                    <td><%=it.first_name%></td>
+                    <td><%=it.last_name%></td>
+                    <td><%=it.email%></td>
+                    <td><%=link_to "View", it%>
+                    <td><%= link_to 'Edit', edit_student_path(it), target:"_blank"%></td>
+                    <td><%= link_to 'Delete', it, method: :delete, data: {
+                    confirm: "Are you sure?"}%> </td>
+                </tr>
+                <%end%>
+            </tbody>
+
+        </table>
+    </div>
+
+    <div id = "link">
+        <%= link_to 'Add new Student', new_student_path, target: "_blank" %>
+    </div>
+</div>
