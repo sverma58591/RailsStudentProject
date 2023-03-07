@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
     def create 
         @student = Student.new(student_params)
         if @student.save
-            redirect_to students_path
+            redirect_to @student, notice: 'Student has been created successfully'
         else 
             render :new
         end
@@ -25,9 +25,8 @@ class StudentsController < ApplicationController
 
     def update
         @student.update(student_params)
-
-        if @student.save
-            redirect_to student_path
+        if @student.save        
+        redirect_to @student, notice: 'Student has been updated successfully'
         else 
             render :edit
         end
@@ -35,11 +34,11 @@ class StudentsController < ApplicationController
 
     def destroy
         @student.destroy
-        redirect_to students_path
+        redirect_to students_path, notice: 'Student has been deleted successfully'
     end 
     private
     def student_params
-        params.require(:student).permit(:first_name, :last_name, :email)
+        params.require(:student).permit(:permanent_address, :local_address, :permanent_contact, :alternate_contact, :last_name, :first_name, :email, :date_of_birth)
     end
 
     def set_student

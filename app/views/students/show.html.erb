@@ -1,6 +1,13 @@
+<p><%=notice%>
 <h1>Student Details</h2>
 <p><strong>First name: </strong><%=@student.first_name%></p>
 <p><strong>Last name: </strong><%=@student.last_name%></p>
 <p><strong>Email: </strong><%=@student.email%></p>
+<p><strong>Date of Birth: </strong><%=@student.date_of_birth%></p>
+<p><strong>Permanent Contact: </strong><%=@student.permanent_contact%></p>
+<p><strong>Alternate Contact: </strong><%=@student.alternate_contact%></p>
+<p><strong>Permanent Address: </strong><%=@student.permanent_address%></p>
+<p><strong>Local Address: </strong><%=@student.local_address%></p>
+
 <%= link_to 'Edit', edit_student_path(@student)%> | <%= link_to 'Delete', @student, method: :delete, data: {confirm: "Are you sure?"}%> |
 <%= link_to 'Back', controller: :students, action: :index%> 
